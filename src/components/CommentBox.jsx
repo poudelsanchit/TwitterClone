@@ -1,22 +1,30 @@
 import { useState } from "react";
 import axios from "axios";
 
-const CommentBox = ({ setShouldRefresh }) => {
-    let array1 = ['hello', 'hi', 'hello', 'hi', 'hello', 'hi'];
+const CommentBox = ({ id, setShouldRefresh }) => {
 
     let [comment, setTweetComment] = useState('');
-    const handleCommentSubmit = (e) => {
-        e.preventDefault();
-        axios.post('https://react-workshop-todo.fly.dev/posts/6457e0b2af38d5ad14563c4c/comment', {
-            content: 'hello world',
-        }, {
-            headers: {
-                apiKey: '6457383b7213f63d43544ac0'
-            },
-        });
-        setShouldRefresh((v) => !v);
-
+    const upload = async () => {
+        try {
+            await axios.post("https://react-workshop-todo.fly.dev/posts/${id}/comment", {
+                content: comment,
+            }, {
+                headers: {
+                    apikey: '6457383b7213f63d43544ac0'
+                }
+            });
+            setTweetComment("");
+            setShouldRefresh((v) => !v);
+        }
+        catch (e) {
+            console.log(e);
+            alert('Error');
+        }
+    };
+    const handleCommentSubmit = () => {
+        upload();
     }
+
 
     return (
         <>
@@ -26,7 +34,7 @@ const CommentBox = ({ setShouldRefresh }) => {
                 <p> <button onClick={handleCommentSubmit}>Comment</button></p>
             </div>
             <div className="comment-lists">
-
+            
             </div>
 
         </>
