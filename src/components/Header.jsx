@@ -1,3 +1,6 @@
+import React from 'react'
+
+
 const Header = ({ name, username, time }) => {
     return (<div className="tweet-header">
         <h3 className="username">{name}</h3>

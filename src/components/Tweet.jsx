@@ -1,6 +1,6 @@
-import Header from "./header";
 import TweetBody from "./tweetbody";
 import Footer from "./footer";
+import Header from "./header";
 
 const Tweet = ({ name, username, time, tweet, image, avatar, id }) => {
     return (
