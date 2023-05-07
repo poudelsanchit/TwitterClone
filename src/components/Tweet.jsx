@@ -1,6 +1,7 @@
 import TweetBody from "./tweetbody";
 import Footer from "./footer";
 import Header from "./Header";
+import CommentDisplay from "./CommentsDisplay";
 const Tweet = ({ name, username, time, tweet, image, avatar, id }) => {
     return (<div className="tweet">
         <img
@@ -12,7 +13,8 @@ const Tweet = ({ name, username, time, tweet, image, avatar, id }) => {
         <div className="tweet-content">
             <Header name={name} username={username} time={time} />
             <TweetBody tweet={tweet} image={image} id={id} />
-            <Footer />
+            <Footer id={id} />
+            <CommentDisplay />
         </div>
     </div >);
 };

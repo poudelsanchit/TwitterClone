@@ -7,14 +7,14 @@ const TweetBody = ({ tweet, image, id }) => {
 
     return (
         <>
-            <div onClick={navigateToTweet}>  <p className="tweet-text">{tweet}</p>
-                <img
-                    className="tweet-image"
-                    src={image}
-                    alt="Tweet Image"
-                    style={{ width: "70%" }}
-                />
-            </div>
+            <div onClick={navigateToTweet}>  <p className="tweet-text">{tweet}</p></div>
+            <img
+                className="tweet-image"
+                src={image}
+                alt="Tweet Image"
+                style={{ width: "70%" }}
+            />
+
         </>
     );
 };

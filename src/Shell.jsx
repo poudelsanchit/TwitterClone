@@ -4,7 +4,8 @@ import NavBar from './components/NavBar';
 import About from './pages/About';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SingleTweet from './pages/SingleTweet';
-function Shell() {
+import CommentBox from './components/CommentBox';
+const Shell = () => {
     return (
         <>
             <NavBar />
@@ -13,6 +14,8 @@ function Shell() {
                     <Route index element={<Home />} />
                     <Route path='/about' element={<About />} />
                     <Route path='/tweet/:id' element={<SingleTweet />} />
+                    <Route path='/comment/:id' element={<CommentBox />} />
+
 
                 </Routes>
             </BrowserRouter>
