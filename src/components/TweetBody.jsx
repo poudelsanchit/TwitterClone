@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import React from 'react'
 const TweetBody = ({ tweet, image, id }) => {
     const navigate = useNavigate();
     const navigateToTweet = () => {
