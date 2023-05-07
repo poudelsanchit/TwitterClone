@@ -1,9 +1,9 @@
 import React from 'react'
-import Home from '../pages/Home';
-import NavBar from './NavBar';
-import About from '../pages/About';
+import Home from './pages/Home';
+import NavBar from './components/NavBar';
+import About from './pages/About';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import SingleTweet from '../pages/SingleTweet';
+import SingleTweet from './pages/SingleTweet';
 function Shell() {
     return (
         <>
