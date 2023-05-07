@@ -1,24 +1,22 @@
-import TweetBody from "./tweetbody";
+import Header from "./Header";
 import Footer from "./footer";
-import Header from "./header";
-
-const Tweet = ({ name, username, time, tweet, image, avatar, id }) => {
+import TweetBody from "./tweetbody";
+const Tweet = ({ name, username, time, tweet, image, avatar }) => {
     return (
-        <>
-            <div className="tweet">
-                <img
-                    className="profile-pic"
-                    src={avatar}
-                    alt="Profile Picture"
-                    height={100}
-                />
-                <div className="tweet-content">
-                    <Header name={name} username={username} time={time} />
-                    <TweetBody tweet={tweet} image={image} id={id} />
-                    <Footer />
-                </div>
-            </div >
-        </>
+
+        <div className="tweet">
+            <img
+                className="profile-pic"
+                src={avatar}
+                alt="Profile Picture"
+            />
+            <div className="tweet-content">
+                <Header name={name} username={username} time={time} />
+                <TweetBody tweet={tweet} image={image} />
+                <Footer />
+            </div>
+        </div>
     );
 };
+
 export default Tweet;
