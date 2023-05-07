@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 const UserTweet = ({ setShouldRefresh }) => {
     let [tweetContent, setTweetContent] = useState("");
-    console.log(tweetContent);
     const upload = async () => {
         try {
             await axios.post("https://react-workshop-todo.fly.dev/posts", {

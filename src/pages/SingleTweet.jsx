@@ -12,7 +12,6 @@ const SingleTweet = () => {
                 apikey: '6457383b7213f63d43544ac0'
             }
         });
-        console.log(resp.data)
         setTweet(resp.data.post)
     }
     useEffect(() => {

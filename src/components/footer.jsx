@@ -3,7 +3,7 @@ import LikeButton from "./likeButton";
 import UnLikeButton from "./UnlikeButton";
 import { useNavigate } from "react-router-dom";
 import CommentBox from "./CommentBox";
-const Footer = () => {
+const Footer = ({ id, setShouldRefresh }) => {
 
     const [isLiked, setIsLiked] = useState(false);
     const [isComment, setIsComment] = useState(true);
@@ -17,7 +17,6 @@ const Footer = () => {
         setIsComment(isComment => !isComment);
     }
     useEffect(() => {
-        console.log("Hello ");
     }, [])
     return (
         <>
@@ -34,7 +33,7 @@ const Footer = () => {
                 }
                 <button className="btn-share">Share</button>
             </div>
-            {isComment ? (<CommentBox />) : null}
+            {isComment ? (<CommentBox id={id} setShouldRefresh={setShouldRefresh} />) : null}
         </>);
 };
 export default Footer;

@@ -39,11 +39,14 @@ const Home = () => {
   }, [shouldRefresh]);
   return (
     <>
+
       <UserTweet setShouldRefresh={setShouldRefresh} />
       {users.map(({ user, date, content, image, _id }) => {
-        return <Tweet name={user.fullname} username={'@' + user.name} time={date} tweet={content} image={image} avatar={'https://avatars.githubusercontent.com/u/' + user.githubId + '?v=4'} key={user.id} id={_id} />
+        return <Tweet name={user.fullname} username={'@' + user.name} time={date} tweet={content} image={image} avatar={'https://avatars.githubusercontent.com/u/' + user.githubId + '?v=4'} key={user.id} id={_id} setShouldRefresh={setShouldRefresh} />
       }
-      )}
+      )
+
+      }
     </>
   );
 };
