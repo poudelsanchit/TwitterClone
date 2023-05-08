@@ -1,9 +1,10 @@
 const CommentDisplay = ({ name, comment }) => {
+
     return (
         <>
-            <div>
-                <div>{name}</div>
-                <div>{comment}</div>
+            <div container>
+                <div className="commentname">{name}</div>
+                <div className="comment">{comment}</div>
                 <hr />
             </div >
         </>
