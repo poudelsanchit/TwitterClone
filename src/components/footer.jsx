@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import LikeButton from "./likeButton";
 import UnLikeButton from "./UnlikeButton";
-const Footer = () => {
+import { useNavigate } from "react-router-dom";
 
+const Footer = ({ id }) => {
+    const navigate = useNavigate();
+    const navigateToTweet = () => {
+        navigate(`/tweet/${id}`);
+    }
     const [isLiked, setIsLiked] = useState(false);
 
     const toggleLike = () => {
@@ -16,7 +21,7 @@ const Footer = () => {
     return (
         <>
             <div className="tweet-footer">
-                <button className="btn-reply">Reply</button>
+                <button className="btn-reply" onClick={navigateToTweet}>Reply</button>
                 <button className="btn-retweet">Retweet</button>
                 {isLiked ? (
                     <UnLikeButton toggle={toggleLike} />
