@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Tweet from '../components/Tweet';
+import CommentBox from '../components/CommentBox';
 
 const SingleTweet = () => {
     const [tweet, setTweet] = useState(null);
@@ -22,6 +23,8 @@ const SingleTweet = () => {
             {
                 tweet ? <Tweet name={tweet.user.fullname} username={'@' + tweet.user.name} time={tweet.date} tweet={tweet.content} image={tweet.image} avatar={'https://avatars.githubusercontent.com/u/' + tweet.user.githubId + '?v=4'} key={tweet._id} /> : null
             }
+            <CommentBox id={id} />
+
         </>
     )
 }

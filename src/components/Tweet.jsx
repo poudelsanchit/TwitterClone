@@ -1,7 +1,6 @@
 import TweetBody from "./tweetbody";
 import Footer from "./footer";
 import Header from "./Header";
-import CommentDisplay from "./CommentsDisplay";
 const Tweet = ({ name, username, time, tweet, image, avatar, id, setShouldRefresh }) => {
     return (<div className="tweet">
         <img

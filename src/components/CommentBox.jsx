@@ -1,44 +1,73 @@
-import { useState } from "react";
-import axios from "axios";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import CommentDisplay from './CommentDisplay';
 
-const CommentBox = ({ id, setShouldRefresh }) => {
-
-    let [comment, setTweetComment] = useState('');
-    const upload = async () => {
-        try {
-            await axios.post("https://react-workshop-todo.fly.dev/posts/${id}/comment", {
-                content: comment,
-            }, {
-                headers: {
-                    apikey: '6457383b7213f63d43544ac0'
-                }
-            });
-            setTweetComment("");
-            setShouldRefresh((v) => !v);
-        }
-        catch (e) {
-            console.log(e);
-            alert('Error');
-        }
-    };
+const CommentBox = ({ id }) => {
+    //upload functions
+    const [comment, setCommentContent] = useState('');
     const handleCommentSubmit = () => {
         upload();
-    }
+    };
+    //uploading data to API
+    const upload = async () => {
+        try {
+            await axios.post(
+                `https://react-workshop-todo.fly.dev/posts/${id}/comments`,
+                {
+                    content: comment,
+                },
+                {
+                    headers: {
+                        apiKey: '6457383b7213f63d43544ac0',
+                    },
+                }
+            );
+            setCommentContent("");
+        } catch (error) {
+            console.log(error);
+            alert('Error Found');
+        }
+    };
+    //fetching data through API
+    const [comments, getComments] = useState([]);
+
+    const fetchCommentsContent = async () => {
+        try {
+            const comments = await axios.get(`https://react-workshop-todo.fly.dev/posts/${id}`, {
+                headers: {
+                    apiKey: '6457383b7213f63d43544ac0',
+                },
+            });
+            getComments(comments.data.post.comments);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    //useEffect
+    useEffect(() => {
+        fetchCommentsContent();
+    }, []);
 
 
     return (
         <>
-            <div className="comment-box">
-                <p> <input type="text" className="comment-input" placeholder="Write a comment...." value={comment} onChange={(e) => setTweetComment(e.target.value)} /></p>
-                <br /><br />
-                <p> <button onClick={handleCommentSubmit}>Comment</button></p>
-            </div>
-            <div className="comment-lists">
-            
-            </div>
+            <div className="comment">
 
+                <div className="comment-box">
+                    <p> <input type="text" className="comment-input" placeholder="Write a comment...." value={comment} onChange={(e) => setCommentContent(e.target.value)} /></p>
+                    <br /><br />
+                    <p> <button onClick={handleCommentSubmit}>Comment</button></p>
+                </div>
+
+                {comments.map((element) => (
+                    <CommentDisplay
+                        name={element.user.name}
+                        content={element.content}
+                    />
+                ))}
+            </div>
         </>
     );
-};
+}
 
 export default CommentBox;
