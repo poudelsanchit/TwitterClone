@@ -62,7 +62,7 @@ const CommentBox = ({ id }) => {
                 {comments.map((data) => (
                     <CommentDisplay
                         name={data.user.name}
-                        content={data.content}
+                        comment={data.content}
                     />
                 ))}
             </div>

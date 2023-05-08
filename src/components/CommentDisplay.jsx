@@ -1,9 +1,9 @@
-const CommentDisplay = ({ name, content }) => {
+const CommentDisplay = ({ name, comment }) => {
     return (
         <>
             <div>
                 <div>{name}</div>
-                <div>{content}</div>
+                <div>{comment}</div>
                 <hr />
             </div >
         </>
