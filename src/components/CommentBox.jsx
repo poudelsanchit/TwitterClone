@@ -59,10 +59,10 @@ const CommentBox = ({ id }) => {
                     <p> <button onClick={handleCommentSubmit}>Comment</button></p>
                 </div>
 
-                {comments.map((element) => (
+                {comments.map((data) => (
                     <CommentDisplay
-                        name={element.user.name}
-                        content={element.content}
+                        name={data.user.name}
+                        content={data.content}
                     />
                 ))}
             </div>
