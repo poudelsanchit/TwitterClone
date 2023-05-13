@@ -15,8 +15,6 @@ const Shell = () => {
                     <Route path='/about' element={<About />} />
                     <Route path='/tweet/:id' element={<SingleTweet />} />
                     <Route path='/comment/:id' element={<CommentBox />} />
-
-
                 </Routes>
             </BrowserRouter>
         </>

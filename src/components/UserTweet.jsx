@@ -6,7 +6,7 @@ const UserTweet = ({ setShouldRefresh }) => {
         try {
             await axios.post("https://react-workshop-todo.fly.dev/posts", {
                 content: tweetContent,
-                image: 'https://sanchitpoudel.com.np/assets/image4.jpg',
+                image: 'https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSRT00eiKqi9d01BFAsmrHY_lmUouhzKI9At2ca71X4KeKaw4xfNg-nonc3VcaGzMrNYMk4DK1p-5OvWiQ',
             }, {
                 headers: {
                     apikey: '6457383b7213f63d43544ac0'
@@ -21,7 +21,7 @@ const UserTweet = ({ setShouldRefresh }) => {
         }
     };
     const handleSubmit = () => {
-        upload();
+        console.log(tweetContent)
     }
 
 
